@@ -12,7 +12,6 @@ _exists() {
     type $cmd >/dev/null 2>&1
   fi
   ret="$?"
-  _debug2 "$cmd exists=$ret"
   return $ret
 }
 
