@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 _exists() {
   cmd="$1"
@@ -16,9 +16,9 @@ _exists() {
 }
 
 if _exists curl ; then
-  curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  bash
+  curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
 elif _exists wget ; then
-  wget -O -  https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  bash
+  wget -O -  https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
 else
   echo "Sorry, you must have curl or wget installed first."
   echo "Please install either of them and try again."
