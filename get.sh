@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 _exists() {
   cmd="$1"
-  if [[ -z "$cmd" ]] ; then
+  if [ -z "$cmd" ] ; then
     _err "Usage: _exists cmd"
     return 1
   fi
