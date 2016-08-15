@@ -5,7 +5,7 @@
 _exists() {
   cmd="$1"
   if [ -z "$cmd" ] ; then
-    _err "Usage: _exists cmd"
+    echo "Usage: _exists cmd"
     return 1
   fi
   if type command >/dev/null 2>&1 ; then
