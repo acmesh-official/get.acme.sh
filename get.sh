@@ -17,7 +17,7 @@ _exists() {
   return $ret
 }
 
-if _exists curl ; then
+if _exists curl && [ "${ACME_USE_WGET:-0}" = "0" ]; then
   curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
 elif _exists wget ; then
   wget -O -  https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
