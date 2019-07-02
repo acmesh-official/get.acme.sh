@@ -37,7 +37,7 @@ fi
 
 _ACME="https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh"
 _CURL="curl $_CURL_OPTS $_ACME"
-_WGET="wget $_WGET_OPTS $_ACME"
+_WGET="wget $_WGET_OPTS -O - $_ACME"
 
 if _exists curl && [ -z "$_USE_WGET" ]; then
   _CMND="$_CURL"
