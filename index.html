@@ -29,11 +29,17 @@ else
   _WGET_OPTS=
 fi
 
+if _truthy "$ACME_USE_WGET"; then
+  _USE_WGET=1
+else
+  _USE_WGET=0
+fi
+
 _ACME="https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh"
 _CURL="curl $_CURL_OPTS $_ACME"
 _WGET="wget $_WGET_OPTS $_ACME"
 
-if _exists curl && ! _truthy "$ACME_USE_WGET"; then
+if _exists curl && [ -z "$_USE_WGET" ]; then
   _CMND="$_CURL"
 elif _exists wget ; then
   _CMND="$_WGET"
@@ -43,4 +49,4 @@ else
   exit 2
 fi
 
-$_CMND | INSTALLONLINE=1 sh -s -- "$@"
+$_CMND | ACME_USE_WGET=$_USE_WGET INSTALLONLINE=1 sh -s -- "$@"
