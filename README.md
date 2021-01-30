@@ -5,14 +5,14 @@
 Install https://github.com/Neilpang/acme.sh
 
 ```
-curl https://get.acme.sh | sh
+curl https://get.acme.sh | sh -s email=my@example.com
 
 ```
 
 or
 
 ```
-wget -O -  https://get.acme.sh | sh
+wget -O -  https://get.acme.sh | sh -s email=my@example.com
 ```
 
 ## 2. Advanced Installation:
