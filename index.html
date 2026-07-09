@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e -o pipefail
+
 #https://github.com/acmesh-official/get.acme.sh
 
 _exists() {
@@ -45,10 +47,13 @@ else
   exit 1
 fi
 
+$_get "$_url" | sh -s -- --install-online $_email "$@"
+_ret=$?
 
-if ! $_get "$_url" | sh -s -- --install-online $_email "$@"; then
+if [ $_ret -ne 0 ]; then
   echo "Install error"
   echo "中国大陆用户请参考:"
   echo "https://github.com/acmesh-official/acme.sh/wiki/Install-in-China"
 fi
 
+exit $_ret
